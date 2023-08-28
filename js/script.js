@@ -27,6 +27,20 @@ form.onsubmit = function(event){
     displayResultMessage(result)
 }
 
+form.oninput = () =>{
+    
+    const weight = inputWeight.value
+    const height = inputHeight.value
+    const weightOrHeightIsNotANumber = notNumber(height) || notNumber(weight)
+
+    if(weightOrHeightIsNotANumber){
+        AlertError.open()
+        return;
+    }
+
+    AlertError.close()   
+}
+
 function displayResultMessage(result){
     const message = `Seu IMC é de ${result}`
 
